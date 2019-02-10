@@ -25,7 +25,12 @@ class HomeController extends Controller
     {
         $tags=Tag::all();
         $categories = Category::all();
-        $posts = Post::latest()->take(6)->get();
+        $posts = Post::latest()
+        ->take(6)
+        ->where ('status','=','1')
+        ->where ('is_approved','=','1')
+        ->orderby('updated_at','desc')
+        ->get();
         return view('FrontEnd/home',compact('categories','posts','tags'));
     }
 }

@@ -32,7 +32,7 @@
         <div class="yummy-load"></div>
     </div>
 
-   
+
     <!-- ****** Top Header Area Start ****** -->
     <div class="top_header_area">
         <div class="container">
@@ -41,7 +41,7 @@
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
                         <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         <a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a>
                         <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
@@ -152,7 +152,7 @@
             </div>
         </div>
         @endforeach
-        
+
     </div>
 
 <br>
@@ -202,14 +202,14 @@
                                                                                 @else
                                                                                     <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
                                                                                        class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'fa fa-heart' : ''}} {{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 1 ? 'fa fa-heart-o' : ''}} "> {{ $post->favorite_to_users->count() }}</a>
-                                    
+
                                                                                     <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
                                                                                         @csrf
                                                                                     </form>
                                                                                 @endguest
-                                    
+
                                                                                 </div>
-                                                                   
+
                                                                     <!-- Post Comments -->
                                                                     <div class="post-comments">
                                                                         <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
@@ -220,14 +220,14 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <a href="#">
+                                                            <a href="{{route('post.details',$post->slug)}}">
                                                                 <h4 class="post-headline">{{ $post->title }}</h4>
                                                             </a>
 
                                                         </div>
                                                         @foreach($post->tags as $tag)
                                                             <a href="#">
-                                                        <span class="label label-info"><i class="fa  fa-tags"></i>&nbsp{{ $tag->title }}</span> 
+                                                        <span class="label label-info"><i class="fa  fa-tags"></i>&nbsp{{ $tag->title }}</span>
                                                     </a>
                                                         @endforeach
                                                     </div>
@@ -362,7 +362,7 @@
     <!-- ****** Blog Area End ****** -->
 
     <!-- ****** Instagram Area Start ****** -->
-   
+
     <!-- ****** Our Creative Portfolio Area End ****** -->
 
     <!-- ****** Footer Social Icon Area Start ****** -->

@@ -16,6 +16,7 @@
 // });
 
 Route::get('/','HomeController@index')->name('home');
+Route::get('/post/{slug}','HomeController@index')->name('post.details');
 Route::post('subscriber','SubsciberController@store')->name('subscriber.store');
 
 Route::group(['middleware'=>['auth']], function (){
