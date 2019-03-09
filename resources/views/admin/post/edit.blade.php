@@ -67,7 +67,7 @@
                     <!-- column -->
                     <div class="col-lg-6">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body"> 
                                 <h4 class="card-title">Categories & Tags</h4>
                                 <div class="form-group {{ $errors->has('categories') ? 'focused error' : '' }}">
                                     <label for="Multi-Select">Categories</label>

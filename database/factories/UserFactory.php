@@ -3,6 +3,7 @@ use App\User;
 use App\Post;
 use App\Tag;
 use App\Category;
+use App\ParentCategory;
 use Faker\Generator as Faker;
 
 /*
@@ -66,5 +67,28 @@ $factory->define(App\PostCategory::class, function (Faker $faker) use ($factory)
     return [
         'post_id' => Post::all()->random()->id,
         'category_id' => Category::all()->random()->id,
+    ];
+}); 
+$factory->define(App\ParentCategory::class, function (Faker $faker) use ($factory) {
+    return [
+        'title_ar'=> $faker->text(20),
+        'title_en'=> $faker->text(20),
+        'slug'=> $faker->unique()->word,
+        'image'=> $faker->image,
+        'details_ar'=>$faker->text,
+        'details_en'=>$faker->text,
+       
+    ];
+}); 
+$factory->define(App\ChildCategory::class, function (Faker $faker) use ($factory) {
+    return [
+        'title_ar'=> $faker->text(20),
+        'title_en'=> $faker->text(20),
+        'slug'=> $faker->unique()->word,
+        'image'=> $faker->image,
+        'details_ar'=>$faker->text,
+        'details_en'=>$faker->text,
+        'parent_category_id' => ParentCategory::all()->random()->id,
+       
     ];
 }); 

@@ -15,6 +15,8 @@
                                 <li><a href="{{ route('admin.post.index') }}"> <i class="fa fa-file-text-o"></i> Post </a></li>
                                 <li><a href="{{ route('admin.post.pending') }}"> <i class="fa fa-file-text-o"></i> Pending Posts </a></li>
                                 <li><a href="{{ route('admin.subscriber.index') }}"> <i class="fa fa-file-text-o"></i> subscriber </a></li>
+                                <li><a href="{{ route('admin.parentcategory.index') }}"> <i class="fa fa-file-text-o"></i> parentcategory </a></li>
+                                <li><a href="{{ route('admin.childcategory.index') }}"> <i class="fa fa-file-text-o"></i> childcategory </a></li>
                                 
 
                             </ul>

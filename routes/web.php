@@ -23,14 +23,15 @@ Route::group(['middleware'=>['auth']], function (){
     Route::post('favorite/{post}/add','FavoriteController@add')->name('post.favorite');
  });
 Auth::routes();
-Route::resource('category','CategoryController');
+// Route::resource('category','CategoryController');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('settings','SettingsController@index')->name('settings');
     Route::put('profile-update','SettingsController@updateProfile')->name('profile.update');
     Route::put('password-update','SettingsController@updatePassword')->name('password.update');
-
+    Route::resource('parentcategory','ParentCategoryController');
+    Route::resource('childcategory','ChildCategoryController');
     Route::resource('tag','TagController');
     Route::resource('category','CategoryController');
     Route::resource('post','PostController');
@@ -41,7 +42,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::post('/post/{post}','PostController@approval')->name('post.approval');
 
 });
-Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'Author', 'middleware' => ['auth', 'author']], function () {
+Route::group(['as' => 'author.', 'prefix' => 'author', 'namespace' => 'author', 'middleware' => ['auth', 'author']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('post','PostController');
 
